@@ -36,6 +36,13 @@ enum preonic_keycodes {
 #define KC_CN_R (LCTL(KC_RGHT))
 #define KC_CN_U (LCTL(KC_UP))
 #define KC_CN_D (LCTL(KC_DOWN))
+#define KC_CN_Z (LCTL(KC_Z))
+#define KC_CN_Y (LCTL(KC_Y))
+//#define KC_CUT  (LCTL(KC_X))
+//#define KC_COPY (LCTL(KC_C))
+//#define KC_PSTE (LCTL(KC_V))
+#define KC_SF11 (LSFT(KC_F11))
+#define KC_SF12 (LSFT(KC_F12))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -104,43 +111,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  | F10  | Ins  |
+ * | Esc  |      |  Cut | Copy | Paste|      |      |   <  |   >  | Undo | Redo | Ins  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  | F11  | F12  |   !  |   @  |      |      |   {  |   }  |   [  |   ]  | Del  |
+ * | Tab  |   ^  |   |  |   &  |   !  |      |      |   (  |   )  |   :  |   "  | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |   &  |   *  |   (  |   )  |      |      |   -  |   =  |   "  |   '  |Enter |
+ * | Ctrl |   %  |   *  |   +  |   =  | Undo |      |   {  |   }  |   ;  |   '  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|   #  |   $  |   %  |   ^  |      |      |   _  |   +  |   |  |   \  |Shift |
+ * | Shift|   @  |   /  |   -  |   _  | Redo |      |   [  |   ]  |   .  |   \  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | PScr | Ctrl | GUI  | Alt  |      |    Space    |      | Alt  | GUI  | Ctrl | Caps |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_INS },
-  {KC_TAB,  KC_F11,  KC_F12,  KC_EXLM, KC_AT,   _______, _______, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, KC_DEL },
-  {KC_LCTL, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, _______, KC_MINS, KC_EQL , KC_DQUO, KC_QUOT, KC_ENT },
-  {KC_LSFT, KC_HASH, KC_DLR , KC_PERC, KC_CIRC, _______, _______, KC_UNDS, KC_PLUS, KC_PIPE, KC_BSLS, KC_RSFT},
+  {KC_ESC,  _______, KC_CUT,  KC_COPY, KC_PASTE,_______, _______, KC_LT,   KC_GT,   KC_CN_Z, KC_CN_Y, KC_INS },
+  {KC_TAB,  KC_CIRC, KC_PIPE, KC_AMPR, KC_EXLM, _______, _______, KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO, KC_DEL },
+  {KC_LCTL, KC_PERC, KC_ASTR, KC_PLUS, KC_EQL,  KC_CN_Z, _______, KC_LCBR, KC_RCBR, KC_SCLN, KC_QUOT, KC_ENT },
+  {KC_LSFT, KC_AT,   KC_SLSH, KC_MINS, KC_UNDS, KC_CN_Y, _______, KC_LBRC, KC_RBRC, KC_DOT,  KC_BSLS, KC_RSFT},
   {KC_PSCR, KC_LCTL, KC_LGUI, KC_RALT, _______,  KC_SPC,  KC_SPC, _______, KC_RALT, KC_LGUI, KC_RCTL, KC_CAPS}
 },
 
 /* Raise
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |   7  |   8  |   9  |   /  |      |      |      | PgUp |      |      | Ins  |
+ * | Esc  |  F1  |  F2  |  F3  |  F4  |      |      |      | PgUp |      |      | Ins  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   4  |   5  |   6  |   *  | Vol+ |      | Home |  Up  | End  |      | Del  |
+ * | Tab  |  F5  |  F6  |  F7  |  F8  |      |      | Cn-L |  Up  | Cn-R |      | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |   1  |   2  |   3  |   -  | Vol- |      | Left | Down |Right |      |Enter |
+ * | Ctrl |  F9  | F10  | F11  | F12  | SF12 | Home | Left | Down | Right|  End |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|   0  |   .  |   =  |   +  | Mute |      | Cn-L | PgDn | Cn-R |      |Shift |
+ * | Shift|      |  Cut | Copy | Paste|      |      | Undo | PgDn | Redo |      |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |NumLk | Ctrl | GUI  | Alt  |      |    Space    |      | Alt  | GUI  | Ctrl |Pause |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = {
-  {KC_ESC,  KC_P7,   KC_P8,   KC_P9,   KC_PSLS, _______, _______, _______, KC_PGUP, _______, _______, KC_INS },
-  {KC_TAB,  KC_P4,   KC_P5,   KC_P6,   KC_PAST, KC_VOLU, _______, KC_HOME, KC_UP,   KC_END , _______, KC_DEL },
-  {KC_LCTL, KC_P1,   KC_P2,   KC_P3,   KC_PMNS, KC_VOLD, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT },
-  {KC_LSFT, KC_P0,   KC_PDOT, KC_PEQL, KC_PPLS, KC_MUTE, _______, KC_CN_L, KC_PGDN, KC_CN_R, _______, KC_RSFT},
+  {KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______, _______, KC_PGUP, _______, _______, KC_INS },
+  {KC_TAB,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, _______, KC_CN_L, KC_UP,   KC_CN_R, _______, KC_DEL },
+  {KC_LCTL, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_SF12, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_ENT },
+  {KC_LSFT, _______, KC_CUT,  KC_COPY, KC_PASTE,_______, _______, KC_CN_Z, KC_PGDN, KC_CN_Y, _______, KC_RSFT},
   {KC_NLCK, KC_LCTL, KC_LGUI, KC_RALT, _______,  KC_SPC,  KC_SPC, _______, KC_RALT, KC_LGUI, KC_RCTL, KC_PAUS}
 },
 
