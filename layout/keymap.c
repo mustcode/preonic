@@ -38,9 +38,9 @@ enum preonic_keycodes {
 #define KC_CN_D (LCTL(KC_DOWN))
 #define KC_CN_Z (LCTL(KC_Z))
 #define KC_CN_Y (LCTL(KC_Y))
-//#define KC_CUT  (LCTL(KC_X))
-//#define KC_COPY (LCTL(KC_C))
-//#define KC_PSTE (LCTL(KC_V))
+#define KC_CN_X (LCTL(KC_X))
+#define KC_CN_C (LCTL(KC_C))
+#define KC_CN_V (LCTL(KC_V))
 #define KC_SF11 (LSFT(KC_F11))
 #define KC_SF12 (LSFT(KC_F12))
 
@@ -123,8 +123,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {KC_ESC,  KC_F10,  KC_F11,  KC_F12,  KC_CUT,  KC_COPY, _______, KC_LT,   KC_GT,   KC_CN_Z, KC_CN_Y, KC_INS },
-  {KC_TAB,  KC_CIRC, KC_PIPE, KC_AMPR, KC_EXLM, KC_PASTE,_______, KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO, KC_DEL },
+  {KC_ESC,  KC_F10,  KC_F11,  KC_F12,  KC_CN_X, KC_CN_C, _______, KC_LT,   KC_GT,   KC_CN_Z, KC_CN_Y, KC_INS },
+  {KC_TAB,  KC_CIRC, KC_PIPE, KC_AMPR, KC_EXLM, KC_CN_V, _______, KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO, KC_DEL },
   {KC_LCTL, KC_PERC, KC_ASTR, KC_PLUS, KC_EQL,  KC_CN_Z, _______, KC_LCBR, KC_RCBR, KC_SCLN, KC_QUOT, KC_ENT },
   {KC_LSFT, KC_AT,   KC_SLSH, KC_MINS, KC_UNDS, KC_CN_Y, _______, KC_LBRC, KC_RBRC, KC_DOT,  KC_BSLS, KC_RSFT},
   {KC_PSCR, KC_LCTL, KC_LGUI, KC_RALT, _______,  KC_SPC,  KC_SPC, _______, KC_RALT, KC_LGUI, KC_RCTL, KC_CAPS}
@@ -136,9 +136,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |  F5  |  F6  |  F7  |  F8  |      |      | Cn-L |  Up  | Cn-R |      | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |  F9  | F10  | F11  | F12  | SF12 | Home | Left | Down | Right|  End |Enter |
+ * | Ctrl |  F9  | F10  | F11  | F12  |      | Home | Left | Down | Right|  End |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|      |  Cut | Copy | Paste|      |      | Undo | PgDn | Redo |      |Shift |
+ * | Shift| SF12 |  Cut | Copy | Paste|      |      | Undo | PgDn | Redo |      |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |NumLk | Ctrl | GUI  | Alt  |      |    Space    |      | Alt  | GUI  | Ctrl |Pause |
  * `-----------------------------------------------------------------------------------'
@@ -146,8 +146,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = {
   {KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______, _______, KC_PGUP, _______, _______, KC_INS },
   {KC_TAB,  KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, _______, KC_CN_L, KC_UP,   KC_CN_R, _______, KC_DEL },
-  {KC_LCTL, KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_SF12, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_ENT },
-  {KC_LSFT, _______, KC_CUT,  KC_COPY, KC_PASTE,_______, _______, KC_CN_Z, KC_PGDN, KC_CN_Y, _______, KC_RSFT},
+  {KC_LCTL, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_ENT },
+  {KC_LSFT, KC_SF12, KC_CN_X, KC_CN_C, KC_CN_V, _______, _______, KC_CN_Z, KC_PGDN, KC_CN_Y, _______, KC_RSFT},
   {KC_NLCK, KC_LCTL, KC_LGUI, KC_RALT, _______,  KC_SPC,  KC_SPC, _______, KC_RALT, KC_LGUI, KC_RCTL, KC_PAUS}
 },
 
