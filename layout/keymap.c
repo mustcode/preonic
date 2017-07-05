@@ -111,9 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |      |  Cut | Copy | Paste|      |      |   <  |   >  | Undo | Redo | Ins  |
+ * | Esc  | F10  | F11  | F12  |  Cut | Copy |      |   <  |   >  | Undo | Redo | Ins  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |   ^  |   |  |   &  |   !  |      |      |   (  |   )  |   :  |   "  | Del  |
+ * | Tab  |   ^  |   |  |   &  |   !  | Paste|      |   (  |   )  |   :  |   "  | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl |   %  |   *  |   +  |   =  | Undo |      |   {  |   }  |   ;  |   '  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -123,8 +123,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {KC_ESC,  _______, KC_CUT,  KC_COPY, KC_PASTE,_______, _______, KC_LT,   KC_GT,   KC_CN_Z, KC_CN_Y, KC_INS },
-  {KC_TAB,  KC_CIRC, KC_PIPE, KC_AMPR, KC_EXLM, _______, _______, KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO, KC_DEL },
+  {KC_ESC,  KC_F10,  KC_F11,  KC_F12,  KC_CUT,  KC_COPY, _______, KC_LT,   KC_GT,   KC_CN_Z, KC_CN_Y, KC_INS },
+  {KC_TAB,  KC_CIRC, KC_PIPE, KC_AMPR, KC_EXLM, KC_PASTE,_______, KC_LPRN, KC_RPRN, KC_COLN, KC_DQUO, KC_DEL },
   {KC_LCTL, KC_PERC, KC_ASTR, KC_PLUS, KC_EQL,  KC_CN_Z, _______, KC_LCBR, KC_RCBR, KC_SCLN, KC_QUOT, KC_ENT },
   {KC_LSFT, KC_AT,   KC_SLSH, KC_MINS, KC_UNDS, KC_CN_Y, _______, KC_LBRC, KC_RBRC, KC_DOT,  KC_BSLS, KC_RSFT},
   {KC_PSCR, KC_LCTL, KC_LGUI, KC_RALT, _______,  KC_SPC,  KC_SPC, _______, KC_RALT, KC_LGUI, KC_RCTL, KC_CAPS}
